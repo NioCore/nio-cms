@@ -17,7 +17,8 @@ obj/Debug/Characteristic.o: src/model/Characteristic.cpp \
   ../essentials/system_config/include/Configuration.h \
   ../essentials/system_config/include/ConfigNode.h \
   ../essentials/fsystem/include/FileSystem.h \
-  ../essentials/id_manager/include/essentials/IDManager.h
+  ../essentials/id_manager/include/essentials/IDManager.h \
+  ../essentials/id_manager/include/essentials/WildcardID.h
 
 include/model/Characteristic.h:
 
@@ -56,3 +57,5 @@ include/model/Characteristic.h:
 ../essentials/fsystem/include/FileSystem.h:
 
 ../essentials/id_manager/include/essentials/IDManager.h:
+
+../essentials/id_manager/include/essentials/WildcardID.h:

@@ -21,6 +21,7 @@ obj/Debug/DynamicRoleAssignment.o: src/DynamicRoleAssignment.cpp \
   ../essentials/system_config/include/ConfigNode.h \
   ../essentials/fsystem/include/FileSystem.h \
   ../essentials/id_manager/include/essentials/IDManager.h \
+  ../essentials/id_manager/include/essentials/WildcardID.h \
   ../alica/alica_engine/include/engine/IAlicaCommunication.h \
   ../alica/alica_engine/include/engine/PlanRepository.h \
   ../alica/alica_engine/include/engine/collections/RobotProperties.h \
@@ -75,6 +76,8 @@ include/model/Characteristic.h:
 ../essentials/fsystem/include/FileSystem.h:
 
 ../essentials/id_manager/include/essentials/IDManager.h:
+
+../essentials/id_manager/include/essentials/WildcardID.h:
 
 ../alica/alica_engine/include/engine/IAlicaCommunication.h:
 

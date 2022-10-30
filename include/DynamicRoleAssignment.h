@@ -11,7 +11,7 @@ namespace alica
 class ActiveAgentView;
 class Agent;
 class AlicaEngine;
-class RobotPrsoperties;
+class RobotProperties;
 class Role;
 class RoleUtility;
 

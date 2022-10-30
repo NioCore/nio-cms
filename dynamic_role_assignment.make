@@ -58,8 +58,6 @@ DEFINES += -DNDEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -O2 -std=c++14
 
-else
-  $(error "invalid configuration $(config)")
 endif
 
 # Per File Configurations
@@ -69,8 +67,12 @@ endif
 # File sets
 # #############################################
 
+GENERATED :=
 OBJECTS :=
 
+GENERATED += $(OBJDIR)/Characteristic.o
+GENERATED += $(OBJDIR)/DynamicRoleAssignment.o
+GENERATED += $(OBJDIR)/RoleUtility.o
 OBJECTS += $(OBJDIR)/Characteristic.o
 OBJECTS += $(OBJDIR)/DynamicRoleAssignment.o
 OBJECTS += $(OBJDIR)/RoleUtility.o
@@ -81,7 +83,7 @@ OBJECTS += $(OBJDIR)/RoleUtility.o
 all: $(TARGET)
 	@:
 
-$(TARGET): $(OBJECTS) $(LDDEPS) | $(TARGETDIR)
+$(TARGET): $(GENERATED) $(OBJECTS) $(LDDEPS) | $(TARGETDIR)
 	$(PRELINKCMDS)
 	@echo Linking dynamic_role_assignment
 	$(SILENT) $(LINKCMD)
@@ -107,9 +109,11 @@ clean:
 	@echo Cleaning dynamic_role_assignment
 ifeq (posix,$(SHELLTYPE))
 	$(SILENT) rm -f  $(TARGET)
+	$(SILENT) rm -rf $(GENERATED)
 	$(SILENT) rm -rf $(OBJDIR)
 else
 	$(SILENT) if exist $(subst /,\\,$(TARGET)) del $(subst /,\\,$(TARGET))
+	$(SILENT) if exist $(subst /,\\,$(GENERATED)) rmdir /s /q $(subst /,\\,$(GENERATED))
 	$(SILENT) if exist $(subst /,\\,$(OBJDIR)) rmdir /s /q $(subst /,\\,$(OBJDIR))
 endif
 
